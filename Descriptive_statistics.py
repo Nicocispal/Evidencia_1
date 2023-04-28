@@ -16,14 +16,24 @@ df = process_comissions_df()
 stats = df.describe(include='all')
 print(stats)
 
+cols1 = ['EDAD', 'NUMERO DE ASEGURADOS', 'PRIMA CEDIDA', 'COMISIONES DIRECTAS', 'FONDO DE INVERSIÓN', 'FONDO DE ADMINISTRACION', 'MONTO DE DIVIDENDOS', 'MONTO DE RESCATE']
 cols = ['NUMERO DE ASEGURADOS', 'PRIMA CEDIDA', 'COMISIONES DIRECTAS', 'FONDO DE INVERSIÓN', 'FONDO DE ADMINISTRACION', 'MONTO DE DIVIDENDOS', 'MONTO DE RESCATE']
 
-for col in cols:
+#Statistics
+for col in cols1:
     print(f'Estadística descriptiva para la columna "{col}":')
     print(df[col].describe())
     print('\n')
 
 
+#Outliers
+for col in cols:
+    fig, ax = plt.subplots(figsize=(10, 8))
+    ax.boxplot(df[col], vert=False)
+    ax.set_title(col)
+    plt.show()
+
+#Kmeans
 X = df[cols]
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
