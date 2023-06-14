@@ -42,5 +42,5 @@ def process_siniestros():
     return df_siniestro
 
 df = process_siniestros()
-print(df.info())
+
 

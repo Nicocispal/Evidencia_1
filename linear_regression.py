@@ -102,7 +102,6 @@ plt.title('Diferencia entre Valores reales y Predicciones')
 plt.show()
 
 
-
 fig = px.scatter(df, x=range(len(y_test)), y=y_test, color_discrete_sequence=['blue'], labels={'x': 'Instancias', 'y': 'PRIMA EMITIDA'}, title='Valores reales')
 fig.add_trace(px.scatter(df, x=range(len(y_test)), y=y_pred, color_discrete_sequence=['red'], labels={'x': 'Instancias', 'y': 'PRIMA EMITIDA'}, title='Predicciones'))
 fig.show()
